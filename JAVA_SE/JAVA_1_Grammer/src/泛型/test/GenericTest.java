@@ -1,8 +1,10 @@
-package fanying;
+package 泛型.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import 泛型.Generic;
 
 /*
  * 作者:

@@ -1,12 +1,12 @@
-package class_demo;
+package 类定义;
 
 /*
  * 使用this关键字给age成员变量赋值 	可以处理重名的情况
  */
-public class This {
+public class This关键字 {
 	int age;
 //	构造函数
-	public This(int age) {
+	public This关键字(int age) {
 		// 使用this关键字给age成员变量赋值 	可以处理重名的情况。
 		this.age=age;
 		

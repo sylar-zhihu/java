@@ -9,7 +9,7 @@ import org.junit.Test;
  * 日期:2018年5月7日:下午2:32:17
  * 程序作用:
 **/
-public class ClassNameTest {
+public class 类的包全路径 {
 
     @Test
     public void test() {
