@@ -16,3 +16,8 @@ JAVA_WEB/Spring/Spring_1_IOC_XML/.project
 JAVA_WEB/Spring/Spring_1_IOC_Annotation/.project
 JAVA_WEB/Spring/Spring_1_IOC_Annotation/.gitignore
 JAVA_WEB/Spring/Spring_1_IOC_Annotation/.classpath
+JAVA_SE/JAVA_2_Design_Pattern/.settings/org.eclipse.m2e.core.prefs
+JAVA_SE/JAVA_2_Design_Pattern/.settings/org.eclipse.jdt.core.prefs
+JAVA_SE/JAVA_2_Design_Pattern/.project
+JAVA_SE/JAVA_2_Design_Pattern/.classpath
+JAVA_SE/JAVA_2_Design_Pattern/target/
