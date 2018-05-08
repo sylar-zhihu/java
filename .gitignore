@@ -13,3 +13,6 @@ JAVA_WEB/Spring/Spring_1_IOC_XML/.gitignore
 JAVA_WEB/Spring/Spring_1_IOC_XML/.classpath
 JAVA_WEB/Spring/Spring_1_IOC_XML/.settings/org.eclipse.m2e.core.prefs
 JAVA_WEB/Spring/Spring_1_IOC_XML/.project
+JAVA_WEB/Spring/Spring_1_IOC_Annotation/.project
+JAVA_WEB/Spring/Spring_1_IOC_Annotation/.gitignore
+JAVA_WEB/Spring/Spring_1_IOC_Annotation/.classpath
