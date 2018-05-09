@@ -1,4 +1,4 @@
-package 类属性;
+package 和class属性相关;
 
 import static org.junit.Assert.*;
 
@@ -13,8 +13,7 @@ public class 类名 {
 
     @Test
     public void test() {
-        // 类的包全路径
-        System.out.println(Integer.class.getName());// java.lang.Integer
+        
         // 类名
         System.out.println(Integer.class.getSimpleName());// Integer
     }
