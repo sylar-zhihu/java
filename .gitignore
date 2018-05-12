@@ -1,4 +1,4 @@
-JAVA_SE/JAVA_1_Grammer/.classpath
+﻿JAVA_SE/JAVA_1_Grammer/.classpath
 JAVA_SE/JAVA_1_Grammer/.settings/org.eclipse.m2e.core.prefs
 JAVA_SE/JAVA_1_Grammer/.settings/org.eclipse.jdt.core.prefs
 JAVA_SE/JAVA_1_Grammer/.project
@@ -21,11 +21,11 @@ JAVA_SE/JAVA_2_Design_Pattern/.settings/org.eclipse.jdt.core.prefs
 JAVA_SE/JAVA_2_Design_Pattern/.project
 JAVA_SE/JAVA_2_Design_Pattern/.classpath
 JAVA_SE/JAVA_2_Design_Pattern/target/
-JAVA_WEB/Spring/Spring_2_AOP_Aspectj/.settings/
-JAVA_WEB/Spring/Spring_2_AOP_Aspectj/.project
-JAVA_WEB/Spring/Spring_2_AOP_Aspectj/.mymetadata
-JAVA_WEB/Spring/Spring_2_AOP_Aspectj/.classpath
-JAVA_WEB/Spring/Spring_2_AOP_Aspectj/target/
+*/.settings/
+*/.project
+*/.mymetadata
+*/.classpath
+*/target/
 JAVA_WEB/SSH整合/spring3_ssh_不使用hibernate配置文件/.project
 JAVA_WEB/SSH整合/spring3_ssh_不使用hibernate配置文件/.mymetadata
 JAVA_WEB/SSH整合/spring3_ssh_不使用hibernate配置文件/.classpath
