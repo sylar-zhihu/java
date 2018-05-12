@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!--开发模式 不用重启服务器，不用重启服务器 更改 struts.xml就能生效 -->
+	<constant name="struts.devMode" value="true" />
+
+
+	<!-- 访问index.jsp 最简单的调用 -->
+	<package name="default" extends="struts-default" namespace="/">
+		<!-- 如果没有对应的拦截器 会报错 访问其他url都会跳转到这里 -->
+		<!-- <default-action-ref name="index"></default-action-ref> -->
+		<!-- 访问/index 跳转到 对应的class 默认执行里面的execute方法 也可以自己定义方法 -->
+		<action name="index" class="action.IndexAction" method="add">
+			<!-- 对不同的返回的字符串进行处理 默认就返回success 可以省略 -->
+			<result name="success">/indexSuccess.jsp</result>
+		</action>
+	</package>
+
+	<!-- 访问/defalut 跳转到DefaultAction 不写method访问默认的execute 方法 package 用来管理不同的action防止重名
+	和访问的url没啥关系 -->
+	<package name="demo2" extends="struts-default" namespace="/">
+		<action name="default" class="action.DefaultAction">
+		<!-- 不写默认返回的是success -->
+            <result>/default.jsp</result>
+		</action>
+	</package>
+
+
+</struts>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    
+	<package name="default" namespace="/" extends="struts-default">
+	   <!-- 通过request对象来获取参数 -->
+		<action name="login" class="cn.itcast.action.LoginAction">
+			<result name="failer">/login.jsp</result>
+			<result type="redirect">/success.jsp</result>
+		</action>
+        <!-- 属性驱动  第一种，直接将action做为model -->
+		<action name="login1" class="cn.itcast.action.Login1Action">
+			<result name="failer">/login1.jsp</result>
+			<result type="redirect">/success.jsp</result>
+		</action>
+        <!-- 属性驱动  第二种，直接在action声明一个model 传递的参数为user.username -->
+		<action name="login2" class="cn.itcast.action.Login2Action">
+			<result name="failer">/login2.jsp</result>
+			<result type="redirect">/success.jsp</result>
+		</action>
+		<action name="login3" class="cn.itcast.action.Login3Action">
+			<result name="failer">/login3.jsp</result>
+			<result type="redirect">/success.jsp</result>
+		</action>
+
+		<action name="list" class="cn.itcast.action.ListAction">
+		</action>
+		
+		<action name="map" class="cn.itcast.action.MapAction">
+		</action>
+
+
+	</package>
+</struts>
