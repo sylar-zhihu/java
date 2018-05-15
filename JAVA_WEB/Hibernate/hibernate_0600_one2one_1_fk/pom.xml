@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>hibernate_0500_CoreAPI</groupId>
-  <artifactId>hibernate_0500_CoreAPI</artifactId>
+  <groupId>hibernate_0600_one2one_1_fk</groupId>
+  <artifactId>hibernate_0600_one2one_1_fk</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
         <!-- hib的核心包 -->
