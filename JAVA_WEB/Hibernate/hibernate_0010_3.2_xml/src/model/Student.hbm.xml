@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 对应的包 -->
+<hibernate-mapping package="model">
+<!-- 类名 和对应的表名 如果不写表名 默认认为等于类名（表名不区分大小写）-->
+    <class name="Student" table="hib_1">
+    <!-- 主键为id  
+    name="id" 对应的类属性名为id  
+    column="id" 对应的表名也为id 如果不写，默认等于name-->
+        <id name="id" column="id"></id>
+        <!-- 不需要映射的字段 不写就行 -->
+        <property name="name"/>
+    </class>
+</hibernate-mapping>
