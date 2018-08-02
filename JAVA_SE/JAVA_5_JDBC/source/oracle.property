@@ -1,0 +1,3 @@
+username=wbank
+password=Wbank0413
+url=jdbc:oracle:thin:@172.31.217.104:1521:BDCFG
