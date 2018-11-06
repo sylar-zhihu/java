@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- annotation使用需要加而外的配置 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 打开Spring的Annotation支持 -->
+	<context:annotation-config />
+
+	<!-- 设定Spring 去哪些包中找Annotation -->
+    <context:component-scan base-package="model.resource" /> 
+
+
+	<!-- 创建一个对象 id为一对应一个类，可以在程序中生成这个类 class 为类的路径 -->
+	<bean id="student" class="model.resource.Student">
+		<property name="name" value="学生1">
+		</property>
+	</bean>
+	
+	 <bean id="student2" class="model.resource.Student">
+        <property name="name" value="学生2">
+        </property>
+    </bean>
+	<bean id="teacher" class="model.resource.Teacher"></bean>
+
+
+
+</beans>
