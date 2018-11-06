@@ -1,9 +1,12 @@
-package model.resource;
+package model.component;
 
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component("teacher")
 public class Teacher {
 
     private Student student;
@@ -12,8 +15,8 @@ public class Teacher {
         return student;
     }
 
-    // 会去找name等于set后第一个字母小写的id
-    @Resource// (name="student")
+    // 注入对象
+    @Resource(name = "student")
     public void setStudent(Student student) {
         this.student = student;
     }

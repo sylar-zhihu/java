@@ -14,18 +14,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestComponent {
     
     @Test
-    // 使用autoWired自动注入学生对象
+    // 得到注入的属性
     public void test属性注入() {
         ApplicationContext factory = new ClassPathXmlApplicationContext("ComponentBean.xml");
-        // 生成一个User对象 传入类ID
+        // 生成一个student对象  得到注入的属性
         Student  student= (Student) factory.getBean("student");
         System.out.println(student.getName());
-        
-
     }
 
     @Test
-    // 使用autoWired自动注入学生对象
+    // 得到注入的对象
     public void testAutoWare() {
         ApplicationContext factory = new ClassPathXmlApplicationContext("ComponentBean.xml");
         // 生成一个User对象 传入类ID
