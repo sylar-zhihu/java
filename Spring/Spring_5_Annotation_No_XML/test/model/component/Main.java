@@ -1,9 +1,17 @@
-package cn.itcast.springboot.javaconfig;
+package model.component;
 
 import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import cn.itcast.springboot.javaconfig.SpringConfig;
+import cn.itcast.springboot.javaconfig.User;
+import cn.itcast.springboot.javaconfig.UserService;
+
+/**
+ * @author asus
+ * 测试非xml的用法
+ */
 public class Main {
     
     public static void main(String[] args) {
