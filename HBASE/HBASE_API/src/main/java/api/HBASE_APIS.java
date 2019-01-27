@@ -40,6 +40,12 @@ public class HBASE_APIS {
 
     Admin admin;
 
+    /**
+     * 作者：sylar-李
+     * 时间：2019年1月26日 下午4:58:30 
+     * 用途说明：初始化连接
+     * @throws IOException
+     */
     public void init() throws IOException {
         // 使用HBaseConfiguration的单例方法实例化
         conf = HBaseConfiguration.create();
