@@ -6,3 +6,4 @@ target/
 *.class
 .mymetadata
 SCALA/Grammer/.idea/
+*.iml
