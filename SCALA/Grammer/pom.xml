@@ -12,6 +12,7 @@
         <module>Scala_Grammer</module>
         <module>SPARK_GRAMMER</module>
         <module>Kafka_Grammer</module>
+        <module>Actor_Grammer</module>
     </modules>
 
     <!-- 配置spark 和scala的版本 这个需要去官网查对应的版本 -->

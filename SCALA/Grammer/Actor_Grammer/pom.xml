@@ -9,27 +9,36 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Scala_Grammer</artifactId>
-
+    <artifactId>Actor_Grammer</artifactId>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <encoding>UTF-8</encoding>
         <scala.version>2.11.8</scala.version>
+        <scala.compat.version>2.11</scala.compat.version>
+        <akka.version>2.4.17</akka.version>
     </properties>
 
-
     <dependencies>
-        <!-- 导入scala的依赖 -->
+        <!-- 添加scala的依赖 -->
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
-            <!--服务器上有
-            <scope>provided</scope>-->
         </dependency>
 
+        <!-- 添加akka的actor依赖 -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_${scala.compat.version}</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
+
+        <!-- 多进程之间的Actor通信 -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-remote_${scala.compat.version}</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

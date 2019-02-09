@@ -1,6 +1,6 @@
 package p_var
 
-object a_var {
+object var_1_basic {
   // object 放静态的方法和变量
 
   def main(args: Array[String]) {
