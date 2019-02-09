@@ -18,6 +18,8 @@ object Fun6_bibao {
 
     val  half = mulby(0.5)
     println(half(3))
+    // 另一种调用
+    println(mulby(3)(2))
   }
 
 }
