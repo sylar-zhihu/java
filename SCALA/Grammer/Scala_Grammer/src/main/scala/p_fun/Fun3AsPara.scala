@@ -9,7 +9,7 @@ object Fun3AsPara {
 
     def plus(x: Double) ={3 * x}
 
-    // map 是一个方法
+    // map 是一个方法 接受的参数是函数
     val array: Array[Double] = Array(3.14, 1.42, 2.0).map(plus)
 
     println(array.toBuffer)
