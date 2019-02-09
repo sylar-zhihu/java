@@ -2,11 +2,12 @@ package yinshizhuanhuan_p
 
 /**
   * 用途:
-  * 隐式值
+  * 隐式函数参数
+  * 函数不传递参数，隐式自动传递
   * 作者：ljb
   * 日期:2019/2/9 16:05 
   */
-object Demo_3_var {
+object Demo_3_Fuc_var {
 
   def main(args: Array[String]): Unit = {
 

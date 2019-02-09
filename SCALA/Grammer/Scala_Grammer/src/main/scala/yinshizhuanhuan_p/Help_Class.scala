@@ -19,3 +19,8 @@ class DB {
   }
 }
 
+class MySQL1 {
+  def sayOk(): Unit = {
+    println("sayOk")
+  }
+}
