@@ -4,7 +4,7 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
-  * 最受欢迎的老师
+  * 最受欢迎的老师,不使用对象传递
   */
 object SortClass2 {
 
@@ -23,6 +23,7 @@ object SortClass2 {
       (name, num1, num2)
     })
 
+    // 传递的只是一个规则
     val sorted: RDD[(String, Int, Int)] = dataRdd.sortBy(u => new User2( u._2, u._3))
     val result: Array[(String, Int, Int)] = sorted.collect()
 
