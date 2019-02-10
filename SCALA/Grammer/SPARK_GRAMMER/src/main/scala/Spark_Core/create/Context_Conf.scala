@@ -1,13 +1,11 @@
-package Spark_Core
+package Spark_Core.create
 
-import org.apache.log4j.{Level, Logger}
-import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
   * 用途:
   * 作者：sylar-lee
-  * 日期:2019/2/4 14:45 
+  * 日期:2019/2/4 14:45
   */
 object Context_Conf {
 

@@ -1,18 +1,22 @@
-package Spark_Core
+package Spark_Core.wordCount
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
-object Spark_WordCount_Local {
+/**
+  * 用途:
+  * 作者：ljb
+  * 日期:2019/2/10 15:10 
+  */
+object Spark_WordCount_HDFS {
 
   def main(args: Array[String]): Unit = {
     // 配置应用程序名字 local表示不调用集群 * 表示使用所有空闲的进程
-   val conf: SparkConf = new SparkConf().setAppName("Spark_Word_Count").setMaster("local[*]")
+   val conf: SparkConf = new SparkConf().setAppName("Spark_WordCount_HDFS").setMaster("local[*]")
     // 得到上下文
     val sc: SparkContext = new SparkContext(conf)
     // 读取数据 用参数
-    val lines: RDD[String] = sc.textFile("C://a.txt")
-    // TODO
+    val lines: RDD[String] = sc.textFile(args(0))
     // var lines= sc.textFile("file:///root/wordCount")
 
     // 打印数据 是一个List

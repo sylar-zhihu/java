@@ -30,7 +30,6 @@
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
             <!--服务器上有-->
-            <scope>provided</scope>
 
         </dependency>
         <!-- 导入spakr的依赖 -->
