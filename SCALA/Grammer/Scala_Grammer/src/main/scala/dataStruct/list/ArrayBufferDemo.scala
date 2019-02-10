@@ -21,7 +21,8 @@ object ArrayBufferDemo {
     println(my_array)
 
 
-
+    // foreach
+    my_array.foreach(println(_))
 
     //    遍历
     for (elem <- my_array)
