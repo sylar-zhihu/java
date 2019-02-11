@@ -40,10 +40,10 @@ object DataFrameFunction {
     peopleDF.filter($"salary" > 3000).show()
     // 过滤 多条件  &&表示and
     peopleDF.filter("name='Andy' OR name='my'").filter($"salary" > 3000).show()
-    peopleDF.filter($"name"==="Andy"|| $"name"==="my").show()
+    peopleDF.filter($"name" === "Andy" || $"name" === "my").show()
     // 聚合
     peopleDF.groupBy("salary").count().show()
-    peopleDF.groupBy("salary","name").count().show()
+    peopleDF.groupBy("salary", "name").count().show()
 
     //  排序 使用降序
     peopleDF.sort(peopleDF("salary").desc).show()

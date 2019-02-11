@@ -1,6 +1,6 @@
-package SPARK_SQL
+package SPARK_SQL.sql
 
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
   * 用途：SparkSql例子
@@ -20,11 +20,11 @@ object SparkSqlDemo {
       .getOrCreate()
 
     //通过spark.read操作读取JSON数据
-    val df = sparkSession.read.json("hdfs://hadoop01:9000/a.json")
+    val df: DataFrame = sparkSession.read.json("hdfs://hadoop01:9000/a.json")
     // 转化为表
     df.createOrReplaceTempView("people")
     // 使用sql去查询表
-    val sqlDF = sparkSession.sql("SELECT * FROM people")
+    val sqlDF: DataFrame = sparkSession.sql("SELECT * FROM people")
     sqlDF.show()
 
     // 临时表是Session范围内的，Session退出后，表就失效了。

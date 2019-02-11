@@ -1,13 +1,13 @@
-package SPARK_SQL.session
+package SPARK_SQL.dataFrame.create
 
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
   * 用途：创建sparkSession
   * 作者：sylar-lee
   * 日期:2019/1/29 12:31
   */
-object SparkSessionDemo {
+object HDFS_JSON {
 
   def main(args: Array[String]): Unit = {
     //创建sparkSession()并设置App名称
@@ -18,7 +18,7 @@ object SparkSessionDemo {
       .config("spark.some.config.option", "some-value")
       .getOrCreate()
     //通过spark.read操作读取JSON数据
-    val df = sparkSession.read.json("hdfs://hadoop01:9000/a.json")
+    val df: DataFrame = sparkSession.read.json("hdfs://hadoop01:9000/a.json")
     // 显示
     df.show()
     // 关闭
