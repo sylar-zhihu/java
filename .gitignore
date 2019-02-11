@@ -7,3 +7,4 @@ target/
 .mymetadata
 SCALA/Grammer/.idea/
 *.iml
+*.lee

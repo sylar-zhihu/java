@@ -20,7 +20,7 @@ object CleanLog2 {
     // 得到sparkContext
     val sparkContext = sparkSession.sparkContext
     // 读取RDD
-    val rawRDD = sparkContext.textFile("C://access.log")
+    val rawRDD = sparkContext.textFile("C://access.lee")
     // toDF
 
     val accessDF= sparkSession.createDataFrame(rawRDD.map(x=>LogUtil.parseLog(x)),LogUtil.struct)
