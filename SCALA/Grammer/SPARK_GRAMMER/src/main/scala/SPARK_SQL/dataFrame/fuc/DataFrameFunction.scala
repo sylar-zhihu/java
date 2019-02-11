@@ -1,6 +1,6 @@
-package SPARK_SQL.dataFrame
+package SPARK_SQL.dataFrame.fuc
 
-import org.apache.spark.sql.{SaveMode, SparkSession}
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
 /**
   * 用途:DataFrame的函数操作,
@@ -22,7 +22,7 @@ object DataFrameFunction {
     // 通过隐式转换将RDD操作添加到DataFrame上
     // 通过spark.read读取JSON数据 转成为DF
     // val df = sparkSession.read.json("hdfs://hadoop01:9000/a.json")
-    val peopleDF = sparkSession.read.json("C://employees.json")
+    val peopleDF: DataFrame = sparkSession.read.json("C://employees.json")
     // 显示 输出前30 默认是20 不截取
     peopleDF.show(30, false)
     // 得到前10个
@@ -33,10 +33,11 @@ object DataFrameFunction {
     peopleDF.printSchema()
     // 显示某一列
     peopleDF.select("name").show()
-    // 加入隐式转化
+    // 加入隐式转化 调用的是RDD的操作
     import sparkSession.implicits._
+    // select 选择数据
     peopleDF.select($"name", ($"salary" + 1).as("salaryFinal")).show()
-    // 条件判断 实际上用的是RDD函数，需要转换
+    // 过滤数据 实际上用的是RDD函数，需要转换
     peopleDF.filter($"salary" > 3000).show()
     // 过滤 多条件  &&表示and
     peopleDF.filter("name='Andy' OR name='my'").filter($"salary" > 3000).show()

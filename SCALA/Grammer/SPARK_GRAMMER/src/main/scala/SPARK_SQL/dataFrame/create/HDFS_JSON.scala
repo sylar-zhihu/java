@@ -18,7 +18,7 @@ object HDFS_JSON {
       .config("spark.some.config.option", "some-value")
       .getOrCreate()
     //通过spark.read操作读取JSON数据
-    val df: DataFrame = sparkSession.read.json("hdfs://hadoop01:9000/a.json")
+    val df: DataFrame = sparkSession.read.json("hdfs://hadoop01:9000/employees.json")
     // 显示
     df.show()
     // 关闭

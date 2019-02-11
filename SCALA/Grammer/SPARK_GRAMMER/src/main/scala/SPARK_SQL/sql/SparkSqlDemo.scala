@@ -21,7 +21,7 @@ object SparkSqlDemo {
 
     //通过spark.read操作读取JSON数据
     val df: DataFrame = sparkSession.read.json("hdfs://hadoop01:9000/a.json")
-    // 转化为表
+    // 转化为临时表
     df.createOrReplaceTempView("people")
     // 使用sql去查询表
     val sqlDF: DataFrame = sparkSession.sql("SELECT * FROM people")

@@ -1,7 +1,7 @@
-package SPARK_SQL.dataFrame
+package SPARK_SQL.dataFrame.fuc
 
-import org.apache.spark.sql.functions._
-import org.apache.spark.sql.{SaveMode, SparkSession}
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions.count
 
 /**
   * 用途:DataFrame的函数操作,
