@@ -3,7 +3,7 @@ package Spark_Core.homeWork.IP
 import scala.io.{BufferedSource, Source}
 
 /**
-  * 用途:读取数据
+  * 用途:本地单机程序
   * 作者：ljb
   * 日期:2019/2/11 16:42 
   */
@@ -14,13 +14,18 @@ object Demo_2 {
     // 按照.切分
     val fragments = ip.split("[.]")
     var ipNum = 0L
-    for (i <- 0 until fragments.length){
-      ipNum =  fragments(i).toLong | ipNum << 8L
+    for (i <- 0 until fragments.length) {
+      ipNum = fragments(i).toLong | ipNum << 8L
     }
     ipNum
   }
 
-  // 读取规则函数
+  /**
+    * 读取规则函数
+    *
+    * @param path
+    * @return 起始数字，结束数字，省份
+    */
   def readRules(path: String): Array[(Long, Long, String)] = {
     //读取ip规则
     val bf: BufferedSource = Source.fromFile(path)
@@ -36,13 +41,40 @@ object Demo_2 {
     rules
   }
 
+  /**
+    * 找到IP对应的Array的下标，没找到返回0
+    *
+    * @param lines
+    * @param ip
+    * @return
+    */
+  def binarySearch(lines: Array[(Long, Long, String)], ip: Long): Int = {
+    var low = 0
+    var high: Int = lines.length - 1
+    while (low <= high) {
+      val middle: Int = (low + high) / 2
+      if ((ip >= lines(middle)._1) && (ip <= lines(middle)._2))
+        return middle
+      if (ip < lines(middle)._1)
+        high = middle - 1
+      else {
+        low = middle + 1
+      }
+    }
+    -1
+  }
+
   def main(args: Array[String]): Unit = {
-    val ip: Long = ip2Long("14.215.177.39")
-    println(ip)
-    println(ip2Long("0.0.0.1"))// 1
-    println(ip2Long("0.0.1.0"))// 256
-    println(ip2Long("0.0.2.1"))// 256*2+1 =513
-    println(ip2Long("0.1.0.0"))// 65536
+    //数据是在内存中
+    val rules: Array[(Long, Long, String)] = readRules("C:\\data\\ip.lee")
+    //将ip地址转换成十进制
+    val ipNum = ip2Long("114.215.43.42")
+    //查找
+    val index = binarySearch(rules, ipNum)
+    //根据脚本到rules中查找对应的数据
+    val tp = rules(index)
+    val province = tp._3
+    println(province)
 
   }
 

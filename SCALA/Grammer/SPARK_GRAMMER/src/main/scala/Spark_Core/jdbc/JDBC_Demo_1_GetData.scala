@@ -10,13 +10,11 @@ import org.apache.spark.{SparkConf, SparkContext}
   * 使用MySQL数据库,读取的数据为RDD 类型
   *
   */
-object JDBC_Demo_1 {
+object JDBC_Demo_1_GetData {
 
   // 定义一个函数 返回connection
   val getConnection = () => {
-    Class.forName("com.mysql.jdbc.Driver")
     DriverManager.getConnection("jdbc:mysql://localhost:3306/spark?characterEncoding=utf8", "root", "123")
-
   }
 
   def main(args: Array[String]): Unit = {
