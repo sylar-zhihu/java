@@ -1,4 +1,4 @@
-package SPARK_SQL.dataSource
+package SPARK_SQL.dataFrame.create
 
 import org.apache.spark.sql.SparkSession
 
@@ -7,7 +7,7 @@ import org.apache.spark.sql.SparkSession
   * 作者：sylar-lee
   * 日期:2019/1/29 12:31
   */
-object ReadHdfs {
+object ReadWindowsFile {
 
   def main(args: Array[String]): Unit = {
     //创建sparkSession()并设置App名称
@@ -18,7 +18,9 @@ object ReadHdfs {
       .config("spark.some.config.option", "some-value")
       .getOrCreate()
     //通过spark.read操作读取JSON数据
-    val df = sparkSession.read.json("hdfs://hadoop01:9000/a.json")
+
+
+    val df = sparkSession.read.json("C://call.log")
     // 显示
     df.show()
     // 关闭

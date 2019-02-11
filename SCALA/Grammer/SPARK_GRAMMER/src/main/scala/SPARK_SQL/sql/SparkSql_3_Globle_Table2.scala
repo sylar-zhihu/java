@@ -1,15 +1,16 @@
-package SPARK_SQL
+package SPARK_SQL.sql
 
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
-  * 用途:
+  * 用途：DataFrame 使用sql
   * 作者：sylar-lee
-  * 日期:2019/1/29 13:46 
+  * 日期:2019/1/29 12:31
   */
-object SparkDataSet {
+object SparkSql_3_Globle_Table2 {
 
   def main(args: Array[String]): Unit = {
+
     //创建SparkSession并设置App名称
     val sparkSession = SparkSession
       .builder().master("local[3]")
@@ -17,12 +18,10 @@ object SparkDataSet {
       // 读取某些配置 运行时候传入的参数
       .config("spark.some.config.option", "some-value")
       .getOrCreate()
-    // 通过隐式转换将RDD操作添加到DataFrame上
-    case class Person(name: String, age: Long)
-    // Encoders are created for case classes
-//    val caseClassDS = Seq(Person("Andy", 32)).toDS()
-//    caseClassDS.show()
 
+
+    // 使用新的session还是可以查询
+    sparkSession.newSession().sql("SELECT * FROM global_temp.people").show()
   }
 
 }

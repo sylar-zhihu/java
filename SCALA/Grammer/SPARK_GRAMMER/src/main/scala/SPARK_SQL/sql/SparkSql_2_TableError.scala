@@ -3,11 +3,11 @@ package SPARK_SQL.sql
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
-  * 用途：SparkSql例子
+  * 用途：使用新的session会报错
   * 作者：sylar-lee
   * 日期:2019/1/29 12:31
   */
-object SparkSqlDemo {
+object SparkSql_2_TableError {
 
   def main(args: Array[String]): Unit = {
 
@@ -20,24 +20,16 @@ object SparkSqlDemo {
       .getOrCreate()
 
     //通过spark.read操作读取JSON数据
-    val df: DataFrame = sparkSession.read.json("hdfs://hadoop01:9000/a.json")
+    val df: DataFrame = sparkSession.read.json("hdfs://hadoop01:9000/employees.json")
     // 转化为临时表
     df.createOrReplaceTempView("people")
     // 使用sql去查询表
     val sqlDF: DataFrame = sparkSession.sql("SELECT * FROM people")
     sqlDF.show()
+    // 使用新的session去查询 报错表不存在
+    sparkSession.newSession().sql("SELECT * FROM people").show()
 
-    // 临时表是Session范围内的，Session退出后，表就失效了。
-    // 如果想应用范围内有效，可以使用全局表。注意使用全局表时需要全路径访问，
-    // 如：global_temp.people
-    df.createGlobalTempView("people")
-    sparkSession.sql("SELECT * FROM global_temp.people").show()
-    // 使用新的session还是可以查询
-    sparkSession.newSession().sql("SELECT * FROM global_temp.people").show()
-    // where 查询
-    sparkSession.newSession().sql("SELECT * FROM global_temp.people where name='Andy'").show()
 
   }
-
 
 }

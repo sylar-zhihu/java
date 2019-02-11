@@ -1,14 +1,14 @@
-package SPARK_SQL.dataFrame.create
+package SPARK_SQL.dataSet
 
-import org.apache.spark
-import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
+import org.apache
+import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 /**
-  * 用途：创建sparkSession
+  * 用途：sql的wordCount
   * 作者：sylar-lee
   * 日期:2019/1/29 12:31
   */
-object HDFS_txt {
+object WordCount_DataSet {
 
   def main(args: Array[String]): Unit = {
     //创建sparkSession()并设置App名称
@@ -25,17 +25,14 @@ object HDFS_txt {
     import sparkSession.implicits._
     // 转化成表
     val words: Dataset[String] = lines.flatMap(_.split(" "))
-    // 注册视图
-    words.createTempView("words")
+    //使用DataSet的API（DSL）
 
-    //执行SQL（Transformation，lazy）
-    val result: DataFrame = sparkSession.sql("SELECT value, COUNT(*) counts FROM words GROUP BY value ORDER BY counts DESC")
+    //导入聚合函数
+    import org.apache.spark.sql.functions._
+    val counts: Dataset[Row] = words.groupBy($"value" as "word").agg(count("*") as "counts").orderBy($"counts" desc)
 
-    //执行Action
-    result.show()
+    counts.show()
 
-    // 关闭
-    sparkSession.stop()
 
   }
 

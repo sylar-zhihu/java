@@ -1,6 +1,6 @@
-package SPARK_SQL.dataSource
+package SPARK_SQL.dataFrame.create
 
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
   * 用途:读取parquet数据
@@ -20,7 +20,7 @@ object ParquetData {
       .getOrCreate()
     // 通过隐式转换将RDD操作添加到DataFrame上
     // 通过spark.read读取JSON数据 转成为DF
-    val df = sparkSession.read.parquet("hdfs://hadoop01:9000/sparkData/users.parquet")
+    val df: DataFrame = sparkSession.read.parquet("hdfs://hadoop01:9000/sparkData/users.parquet")
     // 显示 输出前20
     df.show()
     // printSchema

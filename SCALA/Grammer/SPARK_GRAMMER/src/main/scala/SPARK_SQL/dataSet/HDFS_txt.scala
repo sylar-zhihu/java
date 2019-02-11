@@ -1,13 +1,13 @@
-package SPARK_SQL.dataSource
+package SPARK_SQL.dataSet
 
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{Dataset, SparkSession}
 
 /**
   * 用途：创建sparkSession
   * 作者：sylar-lee
   * 日期:2019/1/29 12:31
   */
-object ReadWindowsFile {
+object HDFS_txt {
 
   def main(args: Array[String]): Unit = {
     //创建sparkSession()并设置App名称
@@ -17,14 +17,12 @@ object ReadWindowsFile {
       // 配置某些spark运行的参数
       .config("spark.some.config.option", "some-value")
       .getOrCreate()
-    //通过spark.read操作读取JSON数据
-
-
-    val df = sparkSession.read.json("C://call.log")
+    // 当做普通文件来读 读取的数据只有一列 列名为value
+    val lines: Dataset[String] = sparkSession.read.textFile("hdfs://hadoop01:9000/words.txt")
     // 显示
-    df.show()
-    // 关闭
-    sparkSession.stop()
+    lines.show()
+
+
 
   }
 
