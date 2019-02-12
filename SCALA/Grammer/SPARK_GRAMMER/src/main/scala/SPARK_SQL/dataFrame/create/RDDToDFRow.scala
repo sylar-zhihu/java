@@ -1,5 +1,6 @@
 package SPARK_SQL.dataFrame.create
 
+import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 import org.apache.spark.sql.{DataFrame, Row, SparkSession, types}
@@ -13,14 +14,14 @@ object RDDToDFRow {
 
   def main(args: Array[String]): Unit = {
     //创建SparkSession并设置App名称
-    val sparkSession = SparkSession
+    val sparkSession: SparkSession = SparkSession
       .builder().master("local[3]")
       .appName("Spark SQL basic example")
       // 读取某些配置 运行时候传入的参数
       .config("spark.some.config.option", "some-value")
       .getOrCreate()
     // 得到sparkContext
-    val sc = sparkSession.sparkContext
+    val sc: SparkContext = sparkSession.sparkContext
     // 得到RDD
     val data: Array[String] = Array("1 li 95 man", "2 wang 88 woman")
     // 并行化生成rdd 分区数量
@@ -42,7 +43,6 @@ object RDDToDFRow {
 
     // 把row对象和schema 关联
     val peopleDF: DataFrame =sparkSession.createDataFrame(peopleRDD,schema)
-    // 加入隐式转化
     peopleDF.show()
 
 

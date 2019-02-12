@@ -13,7 +13,7 @@ object DataSetToDF {
 
   def main(args: Array[String]): Unit = {
     //创建SparkSession并设置App名称
-    val sparkSession = SparkSession
+    val sparkSession: SparkSession = SparkSession
       .builder().master("local[3]")
       .appName("Spark SQL basic example")
       // 读取某些配置 运行时候传入的参数
@@ -24,7 +24,7 @@ object DataSetToDF {
     val lines: Dataset[String] = sparkSession.createDataset(List("1,lu,man", "2,wang,woman", "3,li,woman"))
     //对数据进行整理
 
-    val tpDs: Dataset[(Long, String, String)] = lines.map(line => {
+    val tpDs: Dataset[(Long, String, String)] = lines.map((line: String) => {
       val segs = line.split(",")
       val id = segs(0).toLong
       val name = segs(1)
