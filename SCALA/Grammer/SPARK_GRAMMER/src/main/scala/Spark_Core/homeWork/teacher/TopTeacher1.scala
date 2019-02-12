@@ -1,4 +1,4 @@
-package Spark_Core.homeWork
+package Spark_Core.homeWork.teacher
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
@@ -13,7 +13,7 @@ object TopTeacher1 {
     val sparkConf: SparkConf = new SparkConf().setAppName("TopTeacher").setMaster("local[*]")
     // sparkConf得到sparkContext
     val sc: SparkContext = new SparkContext(sparkConf)
-    val lines: RDD[String] = sc.textFile("C://teacher.log")
+    val lines: RDD[String] = sc.textFile("C://data//teacher.lee")
     // 切分数据
     val teacherAndOne: RDD[(String, Int)] = lines.map(line => {
       val splits: Array[String] = line.split("/")
@@ -26,10 +26,6 @@ object TopTeacher1 {
     val tuples: Array[(String, Int)] = result.collect()
     // 输出
     println(tuples.toBuffer)
-
-
-
-
 
   }
 

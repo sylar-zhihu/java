@@ -7,7 +7,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   * 作者：sylar-lee
   * 日期:2019/1/29 12:31
   */
-object HDFS_JSON {
+object JSON_Data {
 
   def main(args: Array[String]): Unit = {
     //创建sparkSession()并设置App名称
@@ -17,7 +17,7 @@ object HDFS_JSON {
       // 配置某些spark运行的参数
       .config("spark.some.config.option", "some-value")
       .getOrCreate()
-    //通过spark.read操作读取JSON数据
+    //通过spark.read操作读取JSON数据 自动获取数据类型
     val df: DataFrame = sparkSession.read.json("hdfs://hadoop01:9000/employees.json")
     // 显示
     df.show()

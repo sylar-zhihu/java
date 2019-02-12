@@ -18,8 +18,6 @@ object ReadWindowsFile {
       .config("spark.some.config.option", "some-value")
       .getOrCreate()
     //通过spark.read操作读取JSON数据
-
-
     val df = sparkSession.read.json("C://call.log")
     // 显示
     df.show()
