@@ -1,11 +1,11 @@
-package projectLog
+package projectLog.statistic
 
 import org.apache.spark.sql.SparkSession
 
 /**
   * 用途: 对新的日志进行清洗
   * 作者：sylar-lee
-  * 日期:2019/1/30 13:54 
+  * 日期:2019/1/30 13:54
   */
 object CleanLog2 {
 

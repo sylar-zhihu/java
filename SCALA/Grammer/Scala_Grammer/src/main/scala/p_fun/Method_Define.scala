@@ -1,23 +1,19 @@
 package p_fun
+
 object Method_Define {
 
+  // 方法用def定义
   def main(args: Array[String]): Unit = {
 
-    // 不省略
+    // 什么都不省略
     // 定义一个函数fun1，参数是两个Int类型，返回值是一个Int类型
     def fun1(x: Int, y: Int): Int = {
       return x + y
     }
 
 
-    // println(fun1) // 证明是个方法
-
-    // 方法转化为函数
-    val fuc2=fun1 _
-
-    // 证明是函数
-    println(fuc2.toString())
-    println(fuc2(1,2))
+    // 使用
+    println(fun1(1, 2))
 
     // 省略返回类型 可以自行推断
     // return 可以省略 用最后一行的值作为返回
@@ -35,7 +31,6 @@ object Method_Define {
 
     show("my show")
 
-
     //  如果方法一行搞定，{}可以省略
     def plus(x: Double) = 3 * x
 
@@ -44,19 +39,15 @@ object Method_Define {
     // 因为只能这样使用
     plus2
 
-
-
-    // 变长参数
-    def sum(args: Int*) = {
-
+    // 变长参数 计算总和
+    def mySum(args: Int*): Int = {
       var result = 0
       for (arg <- args) result += arg
       result
     }
 
-    var s = sum(1, 4, 9, 16, 25)
+    val s: Int = mySum(1, 4, 9, 16, 25)
     println(s)
-    s = sum()
-    println(s)
+
   }
 }

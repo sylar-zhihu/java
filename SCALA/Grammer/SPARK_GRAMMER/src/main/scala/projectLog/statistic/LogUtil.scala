@@ -1,4 +1,4 @@
-package projectLog
+package projectLog.statistic
 
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.types.{LongType, StringType, StructField, StructType}
@@ -6,7 +6,7 @@ import org.apache.spark.sql.types.{LongType, StringType, StructField, StructType
 /**
   * 用途:
   * 作者：sylar-lee
-  * 日期:2019/1/30 15:53 
+  * 日期:2019/1/30 15:53
   */
 object LogUtil {
   val struct = StructType(

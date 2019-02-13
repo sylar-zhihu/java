@@ -39,6 +39,9 @@ object ArrayBufferFuc {
 
     // foreach
     array1.foreach(println(_))
+    array1.foreach(f = x => {
+      println(x)
+    })
 
     // groupby 返回一个map
     val data: ArrayBuffer[(String, String)] = ArrayBuffer(("a", "1"), ("b", "2"), ("c", "2"))
@@ -58,7 +61,6 @@ object ArrayBufferFuc {
     // count
     val b2: Int = b.count(_ > 3)
     println(b2) //2
-
 
   }
 

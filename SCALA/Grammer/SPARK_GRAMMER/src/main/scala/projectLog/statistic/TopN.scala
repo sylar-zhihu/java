@@ -1,11 +1,12 @@
-package projectLog
-import org.apache.spark.sql.functions._
+package projectLog.statistic
+
+import org.apache.spark.sql.functions.count
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
   * 用途:
   * 作者：sylar-lee
-  * 日期:2019/1/30 18:48 
+  * 日期:2019/1/30 18:48
   */
 object TopN {
 

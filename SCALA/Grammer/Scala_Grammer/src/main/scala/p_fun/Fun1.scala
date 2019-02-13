@@ -3,8 +3,8 @@ package p_fun
 object Fun1 {
 
   def main(args: Array[String]): Unit = {
-    // 定义
-    val triple = (x: Double) => {
+    // 定义 返回值是double=>double 不写返回类型，自动推断
+    val triple: Double => Double = (x: Double) => {
       3 * x
     }
     // 证明
