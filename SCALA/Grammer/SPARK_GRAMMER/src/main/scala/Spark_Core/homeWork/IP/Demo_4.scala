@@ -46,14 +46,14 @@ object Demo_4 {
       val fields = log.split("[|]")
       val ip = fields(1)
       //将ip转换成十进制
-      val ipNum = Demo_2.ip2Long(ip)
+      val ipNum = Demo_1_IPToLong.ip2Long(ip)
       //进行二分法查找，通过Driver端的引用或取到Executor中的广播变量
       //（该函数中的代码是在Executor中别调用执行的，通过广播变量的引用，就可以拿到当前Executor中的广播的规则了）
       //Task是在Driver端生成的，广播变量的引用是伴随着Task被发送到Executor中的
       val rulesInExecutor: Array[(Long, Long, String)] = broadcastRef.value
       //查找
       var province = "未知"
-      val index = Demo_2.binarySearch(rulesInExecutor, ipNum)
+      val index = Demo_2_getProvince.binarySearch(rulesInExecutor, ipNum)
       if (index != -1) {
         province = rulesInExecutor(index)._3
       }

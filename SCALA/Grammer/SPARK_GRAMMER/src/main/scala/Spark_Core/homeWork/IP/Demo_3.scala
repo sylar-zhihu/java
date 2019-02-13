@@ -21,7 +21,7 @@ object Demo_3 {
 
     //在Driver端获取到全部的IP规则数据（全部的IP规则数据在某一台机器上，跟Driver在同一台机器上）
     //全部的IP规则在Driver端了（在Driver端的内存中了）
-    val rules: Array[(Long, Long, String)] = Demo_2.readRules("C:\\data\\ip.lee")
+    val rules: Array[(Long, Long, String)] = Demo_2_getProvince.readRules("C:\\data\\ip.lee")
 
     //将Drive端的数据广播到Executor中
 
@@ -36,13 +36,13 @@ object Demo_3 {
       val fields: Array[String] = line.split("[|]")
       val ip = fields(1)
       //将ip转换成十进制
-      val ipNum: Long = Demo_2.ip2Long(ip)
+      val ipNum: Long = Demo_1_IPToLong.ip2Long(ip)
       //进行二分法查找，通过Driver端的引用或取到Executor中的广播变量
       //（该函数中的代码是在Executor中别调用执行的，通过广播变量的引用，就可以拿到当前Executor中的广播的规则了）
       val rulesInExecutor: Array[(Long, Long, String)] = broadcastRef.value
       //查找
       var province = "未知"
-      val index = Demo_2.binarySearch(rulesInExecutor, ipNum)
+      val index = Demo_2_getProvince.binarySearch(rulesInExecutor, ipNum)
       if (index != -1) {
         province = rulesInExecutor(index)._3
       }

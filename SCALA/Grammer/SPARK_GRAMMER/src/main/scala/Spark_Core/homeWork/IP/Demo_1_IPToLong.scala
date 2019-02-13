@@ -5,7 +5,7 @@ package Spark_Core.homeWork.IP
   * 作者：ljb
   * 日期:2019/2/11 16:42 
   */
-object Demo_1 {
+object Demo_1_IPToLong {
 
   // 把ip转化为十进制
   def ip2Long(ip: String): Long = {

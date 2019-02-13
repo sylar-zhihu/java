@@ -1,5 +1,6 @@
 package Spark_Core.homeWork.IP
 
+import Spark_Core.homeWork.IP.Demo_2_getProvince.{binarySearch, readRules}
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
@@ -13,58 +14,31 @@ import scala.io.{BufferedSource, Source}
   */
 object IPUtil {
 
-  // 把ip转化为十进制
-  def ip2Long(ip: String): Long = {
-    // 按照.切分
-    val fragments = ip.split("[.]")
-    var ipNum = 0L
-    for (i <- 0 until fragments.length) {
-      ipNum = fragments(i).toLong | ipNum << 8L
-    }
-    ipNum
-  }
+  val rules = readRules("C:\\data\\ip.lee")
 
   /**
-    * 读取规则函数
+    * 传入一个IP返回对应城市
     *
-    * @param path
-    * @return 起始数字，结束数字，省份
+    * @param String
     */
-  def readRules(path: String): Array[(Long, Long, String)] = {
-    //读取ip规则
-    val bf: BufferedSource = Source.fromFile(path)
-    val lines: Iterator[String] = bf.getLines()
-    //对ip规则进行整理，并放入到内存
-    val rules: Array[(Long, Long, String)] = lines.map(line => {
-      val segs: Array[String] = line.split("[|]")
-      val startNum: Long = segs(2).toLong
-      val endNum: Long = segs(3).toLong
-      val province: String = segs(6)
-      (startNum, endNum, province)
-    }).toArray
-    rules
+  def IpGetProvince(ip: String): String = {
+    //将ip地址转换成十进制
+    val ipNum: Long = Demo_1_IPToLong.ip2Long(ip)
+    // 查找IP对应的下标
+    val index: Int = Demo_2_getProvince.binarySearch(rules, ipNum)
+
+    var province = "未知"
+
+    if (index != -1) {
+      province = rules(index)._3
+    }
+    // 根据脚本到rules中查找对应的数据
+    province
+
   }
 
-  /**
-    * 找到IP对应的Array的下标，没找到返回0
-    *
-    * @param lines
-    * @param ip
-    * @return
-    */
-  def binarySearch(lines: Array[(Long, Long, String)], ip: Long): Int = {
-    var low = 0
-    var high: Int = lines.length - 1
-    while (low <= high) {
-      val middle: Int = (low + high) / 2
-      if ((ip >= lines(middle)._1) && (ip <= lines(middle)._2))
-        return middle
-      if (ip < lines(middle)._1)
-        high = middle - 1
-      else {
-        low = middle + 1
-      }
-    }
-    -1
+  def main(args: Array[String]): Unit = {
+    val ipNum: String = IpGetProvince("114.215.43.42")
+    println(ipNum)
   }
 }

@@ -1,6 +1,6 @@
 package SPARK_SQL.homeWork
 
-import Spark_Core.homeWork.IP.IPUtil
+import Spark_Core.homeWork.IP.{Demo_1_IPToLong, Demo_2_getProvince, IPUtil}
 import org.apache.spark.SparkContext
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
@@ -56,7 +56,7 @@ object Demo_2 {
       val fields: Array[String] = log.split("[|]")
       val ip = fields(1)
       //将ip转换成十进制
-      val ipNum: Long = IPUtil.ip2Long(ip)
+      val ipNum: Long = Demo_1_IPToLong.ip2Long(ip)
       ipNum
     }).toDF("ipNum")
 
@@ -68,7 +68,7 @@ object Demo_2 {
       //查找ip规则（事先已经广播了，已经在Executor中了）
       val ipRulesInExecutor: Array[(Long, Long, String)] = ipRulesArrayBC.value
       //根据IP地址对应的十进制查找省份名称
-      val index: Int = IPUtil.binarySearch(ipRulesInExecutor, ipNum)
+      val index: Int = Demo_2_getProvince.binarySearch(ipRulesInExecutor, ipNum)
       var province = "未知"
       if(index != -1) {
         province = ipRulesInExecutor(index)._3

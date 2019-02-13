@@ -7,18 +7,9 @@ import scala.io.{BufferedSource, Source}
   * 作者：ljb
   * 日期:2019/2/11 16:42 
   */
-object Demo_2 {
+object Demo_2_getProvince {
 
-  // 把ip转化为十进制
-  def ip2Long(ip: String): Long = {
-    // 按照.切分
-    val fragments = ip.split("[.]")
-    var ipNum = 0L
-    for (i <- 0 until fragments.length) {
-      ipNum = fragments(i).toLong | ipNum << 8L
-    }
-    ipNum
-  }
+
 
   /**
     * 读取规则函数
@@ -68,12 +59,12 @@ object Demo_2 {
     //数据是在内存中
     val rules: Array[(Long, Long, String)] = readRules("C:\\data\\ip.lee")
     //将ip地址转换成十进制
-    val ipNum = ip2Long("114.215.43.42")
+    val ipNum: Long = Demo_1_IPToLong.ip2Long("114.215.43.42")
     //查找
-    val index = binarySearch(rules, ipNum)
+    val index: Int = binarySearch(rules, ipNum)
     //根据脚本到rules中查找对应的数据
     val tp = rules(index)
-    val province = tp._3
+    val province: String = tp._3
     println(province)
 
   }

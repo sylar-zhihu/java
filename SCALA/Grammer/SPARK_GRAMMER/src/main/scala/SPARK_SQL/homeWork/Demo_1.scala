@@ -1,5 +1,5 @@
 package SPARK_SQL.homeWork
-import Spark_Core.homeWork.IP.IPUtil
+import Spark_Core.homeWork.IP.{Demo_1_IPToLong, IPUtil}
 import org.apache
 import org.apache.spark
 import org.apache.spark.broadcast.Broadcast
@@ -51,7 +51,7 @@ object Demo_1 {
       val fields: Array[String] = log.split("[|]")
       val ip = fields(1)
       //将ip转换成十进制
-      val ipNum: Long = IPUtil.ip2Long(ip)
+      val ipNum: Long = Demo_1_IPToLong.ip2Long(ip)
       ipNum
     }).toDF("ipNum")
 
