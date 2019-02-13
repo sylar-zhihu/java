@@ -1,5 +1,6 @@
 package projectLog.statistic.oneStep
 
+import Spark_Core.homeWork.IP.IPUtil
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.types.{LongType, StringType, StructField, StructType}
 
@@ -50,7 +51,7 @@ object Step_1_getData {
 
       }
 
-      var city = ""
+      val city = IPUtil.IpGetProvince(ip)
       // 2017-05-11 04:18:47
       val time = splits(0)
       // 20170511

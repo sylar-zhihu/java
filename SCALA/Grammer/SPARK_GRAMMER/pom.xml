@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>SPARK_GRAMMER</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>../Spark_1.3_Grammer</module>
+    </modules>
 
 
     <!-- 配置spark 和scala的版本 这个需要去官网查对应的版本 -->

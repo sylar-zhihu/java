@@ -3,7 +3,7 @@ package projectLog.statistic
 import org.apache.spark
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SaveMode, SparkSession}
 import projectLog.statistic.oneStep.Step_1_getData
 
 /**
@@ -11,7 +11,7 @@ import projectLog.statistic.oneStep.Step_1_getData
   * 作者：sylar-lee
   * 日期:2019/1/30 13:54
   */
-object StatisticData {
+object CleanData {
 
   def main(args: Array[String]): Unit = {
     //创建SparkSession并设置App名称
@@ -33,6 +33,10 @@ object StatisticData {
 
     dataDF.printSchema()
     dataDF.show(false)
+
+    // 1个分区，parquet格式，按照天分区
+    dataDF.coalesce(1).write.format("parquet").mode(SaveMode.Overwrite)
+      .partitionBy("day").save("C://data//logs/clean")
 
     println("down")
   }
