@@ -8,7 +8,7 @@ import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
   * 作者：sylar-lee
   * 日期:2019/1/30 18:48
   */
-object TopNDSL {
+object TopN_DSL {
 
   def main(args: Array[String]): Unit = {
     //创建SparkSession并设置App名称

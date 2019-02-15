@@ -14,11 +14,11 @@ object ReduceByKey_RDD {
     val conf: SparkConf = new SparkConf().setAppName("RDD_Filter").setMaster("local[*]")
     val sc = new SparkContext(conf)
     // reduce(func)是对数据集的所有元素执行聚集(func)函数，该函数必须是可交换的。
-    val rdd = sc.parallelize(List(("a", 2), ("b", 3), ("a", 3)))
+    val rdd: RDD[(String, Int)] = sc.parallelize(List(("a", 2), ("b", 3), ("a", 3)))
     // 合并key计算 x,y是两个不同元祖的value
     val r1: RDD[(String, Int)] = rdd.reduceByKey((x, y) => x + y)
     // 简写就是
-    val r2 = rdd.reduceByKey(_ + _)
+    val r2: RDD[(String, Int)] = rdd.reduceByKey(_ + _)
     println(r1.collect().toBuffer) // ArrayBuffer((a,5), (b,3))
 
   }

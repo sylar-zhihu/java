@@ -1,9 +1,8 @@
-package Spark_Core.jdbc
+package Spark_Core.jdbc.mysql
 
 import java.sql.DriverManager
 
-import org.apache.spark.rdd.{JdbcRDD, RDD}
-import org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD
+import org.apache.spark.rdd.JdbcRDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**

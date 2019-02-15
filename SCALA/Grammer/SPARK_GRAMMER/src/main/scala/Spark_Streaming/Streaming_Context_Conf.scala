@@ -13,8 +13,8 @@ object Streaming_Context_Conf {
   def main(args: Array[String]): Unit = {
     // 必须两个以上线程
     val sparkConf = new SparkConf().setAppName("wordCount").setMaster("local[3]")
-    // 新建一个入口 一秒钟一个批处理
-    val streamingContext = new StreamingContext(sparkConf,Durations.seconds(3))
+    // sparkSteaming的入口点
+    val streamingContext: StreamingContext = new StreamingContext(sparkConf,Durations.seconds(3))
     // 得到context
     val sparkContext = streamingContext.sparkContext
   }
