@@ -32,7 +32,7 @@ public class HdfsClient {
         // 1 获取文件系统
         Configuration configuration = new Configuration();
         // 配置在集群上运行
-        // configuration.set("fs.defaultFS", "hdfs://hadoop102:9000");
+        // configuration.set("fs.defaultFS", "hdfs://hadoop01:9000");
         // FileSystem fs = FileSystem.get(configuration);
         // 用户必须要设置
         FileSystem fs = FileSystem.get(new URI("hdfs://hadoop01:9000"), configuration, "root");

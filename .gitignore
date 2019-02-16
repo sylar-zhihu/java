@@ -8,3 +8,4 @@ target/
 SCALA/Grammer/.idea/
 *.iml
 *.lee
+.idea
