@@ -1,9 +1,9 @@
-package projectLog.clean
+package MCLog.clean
 
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
-import projectLog.clean.oneStep.Step_1_OneLine
+import MCLog.clean.oneStep.Step_1_OneLine
 
 /**
   * 用途:日志清洗

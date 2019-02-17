@@ -1,9 +1,14 @@
-package Spark_Core.create
+package Spark_Core.create.place
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
+/**
+  * 用途:
+  * 作者：ljb
+  * 日期:2019/2/16 19:52 
+  */
 object Spark_1_Create_RDDFromScala {
 
   def main(args: Array[String]): Unit = {

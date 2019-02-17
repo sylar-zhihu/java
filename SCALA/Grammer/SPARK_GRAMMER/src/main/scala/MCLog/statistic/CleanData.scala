@@ -1,10 +1,10 @@
-package projectLog.statistic
+package MCLog.statistic
 
 import org.apache.spark
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{SaveMode, SparkSession}
-import projectLog.statistic.oneStep.Step_1_getData
+import MCLog.statistic.oneStep.Step_1_getData
 
 /**
   * 用途: 对新的日志进行清洗

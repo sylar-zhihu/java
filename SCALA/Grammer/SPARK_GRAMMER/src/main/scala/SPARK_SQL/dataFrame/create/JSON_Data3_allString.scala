@@ -1,16 +1,15 @@
 package SPARK_SQL.dataFrame.create
 
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.types._
 
 /**
   * 用途：创建sparkSession
   * 作者：sylar-lee
   * 日期:2019/1/29 12:31
-  * 若列数据全为null会用String类型
-  * 整数默认会用Long类型
-  * 浮点数默认会用Double类型
+  * 自定义数据类型
   */
-object JSON_Data {
+object JSON_Data3_allString {
 
   def main(args: Array[String]): Unit = {
     //创建sparkSession()并设置App名称
@@ -19,7 +18,14 @@ object JSON_Data {
       .appName("Spark SQL basic example")
       .getOrCreate()
     //通过spark.read操作读取JSON数据 自动获取数据类型
-    val df: DataFrame = sparkSession.read.json("C://employees.json")
+
+    val employeesSchema = StructType(List(
+      StructField("name", StringType, true),
+      StructField("salary", StringType, true)
+    ))
+
+    val df = sparkSession.read.schema(employeesSchema).json("C://employees.json")
+
     // 显示
     df.show()
     // 会自动推断类型

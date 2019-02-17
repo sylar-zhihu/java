@@ -1,4 +1,4 @@
-package projectLog.statistic.toMysql
+package MCLog.statistic.toMysql
 
 import java.sql.{Connection, PreparedStatement}
 

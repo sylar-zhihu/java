@@ -2,19 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>Grammer</artifactId>
-        <groupId>Grammer</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
-
+    <groupId>cn.edu360.spark</groupId>
     <artifactId>SPARK_GRAMMER</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>../Spark_1.3_Grammer</module>
-    </modules>
-
+    <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
 
     <!-- 配置spark 和scala的版本 这个需要去官网查对应的版本 -->
     <properties>
@@ -145,7 +136,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Spark_Core.Spark_WordCount_Cluster</mainClass>
+                            <mainClass>main.scala.spark.demo.Spark_WordCount</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

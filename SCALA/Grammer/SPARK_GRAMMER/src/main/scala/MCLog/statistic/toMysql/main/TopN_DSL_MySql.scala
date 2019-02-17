@@ -1,9 +1,9 @@
-package projectLog.statistic.toMysql.main
+package MCLog.statistic.toMysql.main
 
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions.{count, row_number, sum}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
-import projectLog.statistic.toMysql.{City_Statistic, CmsID_Statistic, SDAO, Traffics_Statistic}
+import MCLog.statistic.toMysql.{City_Statistic, CmsID_Statistic, SDAO, Traffics_Statistic}
 
 import scala.collection.mutable.ListBuffer
 

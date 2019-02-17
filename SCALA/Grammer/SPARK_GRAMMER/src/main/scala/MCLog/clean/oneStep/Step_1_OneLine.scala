@@ -1,4 +1,4 @@
-package projectLog.clean.oneStep
+package MCLog.clean.oneStep
 
 /**
   * 用途:

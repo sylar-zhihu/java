@@ -1,3 +1,3 @@
-package projectLog.statistic.toMysql
+package MCLog.statistic.toMysql
 
 case class City_Statistic(day: String, cmsId: Long, city: String, times: Long, timesRank: Int)

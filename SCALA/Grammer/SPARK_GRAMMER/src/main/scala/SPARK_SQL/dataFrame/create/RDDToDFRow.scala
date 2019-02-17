@@ -33,6 +33,8 @@ object RDDToDFRow {
     })
 
     // 对表的描述
+    // 若数据无法匹配schema中类型：若schema中列允许为null会转为null；
+    // 若不允许为null会转为相应类型的空值（如Double类型为0.0值），若无法转换为值会抛出异常
     val schema = StructType(List(
       // true 能否为空
       StructField("id", IntegerType, true),
