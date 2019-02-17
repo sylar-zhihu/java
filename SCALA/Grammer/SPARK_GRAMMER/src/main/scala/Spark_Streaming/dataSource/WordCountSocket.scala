@@ -1,6 +1,7 @@
-package Spark_Streaming.singleData
+package Spark_Streaming.dataSource
 
 import org.apache.spark.SparkConf
+import org.apache.spark.streaming.dstream.ReceiverInputDStream
 import org.apache.spark.streaming.{Durations, StreamingContext}
 
 /**
@@ -8,7 +9,7 @@ import org.apache.spark.streaming.{Durations, StreamingContext}
   * 作者：sylar-lee
   * 日期:2019/2/1 11:08
   */
-object WordCountNet {
+object WordCountSocket {
 
   def main(args: Array[String]): Unit = {
     // 必须两个以上线程
@@ -16,7 +17,7 @@ object WordCountNet {
     // 新建一个入口 一秒钟一个批处理
     val streamingContext = new StreamingContext(sparkConf,Durations.seconds(1))
     // 监听这个端口
-    val lines = streamingContext.socketTextStream("hadoop01",9999)
+    val lines: ReceiverInputDStream[String] = streamingContext.socketTextStream("hadoop01",9999)
     // 得到单词
     val words = lines.flatMap(_.split(" "))
     val pairs = words.map((_,1))

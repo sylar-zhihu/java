@@ -24,14 +24,16 @@ object CleanLog {
     var df: DataFrame = sparkSession.read.json("C:\\data\\20170814new")
     // 显示  读取json 但是有两层嵌套
 //    df.show(false)
+   println(df.count())
     // 打印
     df.printSchema()
     // 选择header数据
     // df.select("header").show(false)
-    // 嵌套选择
-    df=df.select("header.sdk_ver")
+    // 去掉空值
+    val nameNotNull=df.na.drop(Array("header.sdk_ver","header.time_zone","header.commit_id"
+      ,"header.commit_time","header.pid","header.app_token","header.app_id","header.device_id"))
     import sparkSession.implicits._
-    df.show(false)
+    println(df.count())
 //    df=df.filter("sdk_ver")
 
     //

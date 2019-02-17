@@ -18,7 +18,7 @@ object WordCountMysql {
     // 新建一个入口 一秒钟一个批处理
     val streamingContext = new StreamingContext(sparkConf, Durations.seconds(8))
     // 监控本地文件夹
-    val lines = streamingContext.textFileStream("C://data")
+    val lines = streamingContext.textFileStream("C:\\data\\sparkStreaming")
     // 得到单词
     val words = lines.flatMap(_.split(" "))
     val pairs = words.map((_, 1))
@@ -27,6 +27,7 @@ object WordCountMysql {
     reslut.print()
     // 存入mysql
     reslut.foreachRDD(rdd => {
+      //  每一个分区建立一个连接
       rdd.foreachPartition(partitionOfRecords => {
         val connection = createConnection()
         partitionOfRecords.foreach(record => {

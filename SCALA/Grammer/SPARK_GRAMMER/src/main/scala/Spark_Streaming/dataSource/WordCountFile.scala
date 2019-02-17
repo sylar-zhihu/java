@@ -1,4 +1,4 @@
-package Spark_Streaming.singleData
+package Spark_Streaming.dataSource
 
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Durations, StreamingContext}
