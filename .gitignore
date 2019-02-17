@@ -9,3 +9,4 @@ SCALA/Grammer/.idea/
 *.iml
 *.lee
 .idea
+*.json
