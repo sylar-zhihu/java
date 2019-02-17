@@ -15,7 +15,7 @@ object SS_1_updateStateByKey {
     // 必须两个以上线程
     val sparkConf = new SparkConf().setAppName("wordCount").setMaster("local[3]")
     // 新建一个入口 一秒钟一个批处理
-    val streamingContext: StreamingContext = new StreamingContext(sparkConf,Durations.seconds(3))
+    val streamingContext: StreamingContext = new StreamingContext(sparkConf, Durations.seconds(3))
     // 如果使用了stateful的算子，必须要设置checkpoint 用来保存中间结果 不然丢了程序白跑了
     // 在生产环境中，建议大家把checkpoint设置到HDFS的某个文件夹中
     streamingContext.checkpoint("C:\\data\\checkPoint")
@@ -23,9 +23,11 @@ object SS_1_updateStateByKey {
     val lines: DStream[String] = streamingContext.textFileStream("C:\\data\\sparkStreaming")
     // 得到单词
     val words: DStream[String] = lines.flatMap(_.split(" "))
-    val pairs: DStream[(String, Int)] = words.map((_,1))
-    // Return a new "state" DStream where the state for each key is updated by applying
-    // the given function on the previous state of the key and the new values of each key.
+    val pairs: DStream[(String, Int)] = words.map((_, 1))
+    /*
+     Return a new "state" DStream where the state for each key is updated by applying
+     the given function on the previous state of the key and the new values of each key.
+     */
     val reslut: DStream[(String, Int)] = pairs.updateStateByKey(updateFunction)
     reslut.print()
     // 启动流式处理
