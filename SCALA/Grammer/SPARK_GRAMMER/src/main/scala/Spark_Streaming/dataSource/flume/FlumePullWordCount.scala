@@ -1,4 +1,4 @@
-package Spark_Streaming.dataSource
+package Spark_Streaming.dataSource.flume
 
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.flume.FlumeUtils

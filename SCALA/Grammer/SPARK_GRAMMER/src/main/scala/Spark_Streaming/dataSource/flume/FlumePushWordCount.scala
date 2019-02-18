@@ -1,8 +1,4 @@
-package Spark_Streaming.dataSource
-
-import org.apache.spark.SparkConf
-import org.apache.spark.streaming.flume.FlumeUtils
-import org.apache.spark.streaming.{Seconds, StreamingContext}
+package Spark_Streaming.dataSource.flume
 
 /**
   * push方式
