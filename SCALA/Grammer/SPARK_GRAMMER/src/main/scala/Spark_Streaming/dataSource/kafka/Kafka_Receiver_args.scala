@@ -1,9 +1,14 @@
-package Spark_Streaming.dataSource.kafka;
+package Spark_Streaming.dataSource.kafka
+
+import org.apache.spark.SparkConf
+import org.apache.spark.streaming.{Seconds, StreamingContext}
+import org.apache.spark.streaming.kafka.KafkaUtils
+;
 
 /**
   * Spark Streaming对接Kafka的方式一
   */
-object Kafka_Receiver_WordCount {
+object Kafka_Receiver_args {
 
   def main(args: Array[String]): Unit = {
 
@@ -18,7 +23,7 @@ object Kafka_Receiver_WordCount {
 
     val ssc = new StreamingContext(sparkConf, Seconds(5))
 
-    val topicMap = topics.split(",").map((_, numThreads.toInt)).toMap
+    val topicMap: Map[String, Int] = topics.split(",").map((_, numThreads.toInt)).toMap
 
     // TODO... Spark Streaming如何对接Kafka
     val messages = KafkaUtils.createStream(ssc, zkQuorum, group,topicMap)

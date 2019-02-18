@@ -1,4 +1,9 @@
-package Spark_Streaming.dataSource.kafka;
+package Spark_Streaming.dataSource.kafka
+
+import org.apache.spark.SparkConf
+import org.apache.spark.streaming.{Seconds, StreamingContext}
+import org.apache.spark.streaming.kafka.KafkaUtils
+
 
 /**
   * Spark Streaming对接Kafka
