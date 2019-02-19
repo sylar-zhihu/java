@@ -6,7 +6,7 @@ import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import kafka.serializer.StringDecoder
 /**
-  * Direct 更好的方式，没有receiver,性能更高
+  * Direct 更好的方式，没有receiver,性能更高,不能显示zk的偏移量
   */
 object Kafka_Direct_Word_local {
 
@@ -27,7 +27,7 @@ object Kafka_Direct_Word_local {
     val topicsSet = topics.split(",").toSet
     val kafkaParams = Map[String,String]("metadata.broker.list"-> brokers)
 
-    // TODO... Spark Streaming如何对接Kafka
+    //  Spark Streaming如何对接Kafka
     val messages = KafkaUtils.createDirectStream[String,String,StringDecoder,StringDecoder](
     ssc,kafkaParams,topicsSet
     )

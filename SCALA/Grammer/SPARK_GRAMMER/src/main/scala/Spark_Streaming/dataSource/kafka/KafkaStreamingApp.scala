@@ -12,6 +12,7 @@ object KafkaStreamingApp {
 
   def main(args: Array[String]): Unit = {
 
+    // 参数 hadoop01:2181 test s1 1
     if(args.length != 4) {
       System.err.println("Usage: KafkaStreamingApp <zkQuorum> <group> <topics> <numThreads>")
     }

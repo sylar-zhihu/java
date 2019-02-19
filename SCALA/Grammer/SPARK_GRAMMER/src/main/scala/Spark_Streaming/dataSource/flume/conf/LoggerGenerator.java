@@ -1,4 +1,4 @@
-package Spark_Streaming.homeWork.log1;
+package Spark_Streaming.dataSource.flume.conf;
 
 import org.apache.log4j.Logger;
 
