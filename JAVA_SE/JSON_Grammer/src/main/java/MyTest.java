@@ -27,7 +27,7 @@ public class MyTest {
 
 
     @Test
-    // 对象编程json
+    // 对象变成json
     public void testObj(){
 
         //创建一个stu对象
