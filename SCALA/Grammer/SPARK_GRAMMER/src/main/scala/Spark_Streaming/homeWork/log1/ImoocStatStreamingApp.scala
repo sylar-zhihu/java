@@ -16,6 +16,9 @@ import scala.collection.mutable.ListBuffer
   * hbase创建表：create 'imooc_course_clickcount','info'
   * desc 'imooc_course_clickcount'
   * Row key:day_courseid
+  *
+  * 表2
+  * create 'imooc_course_search_clickcount' ,'info'
   * 传入的参数 hadoop01:2181 test s1 1
   */
 object ImoocStatStreamingApp {
