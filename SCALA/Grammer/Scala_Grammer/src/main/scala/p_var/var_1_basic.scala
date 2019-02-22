@@ -12,6 +12,6 @@ object var_1_basic {
     var str = "itcast" // 可变类型  可以不定义数据类型会自动推断
     val str2: String = "aaa" // 定义变量同时指定数据类型
 
-    // println("hello scala")
+     println("hello scala")
   }
 }

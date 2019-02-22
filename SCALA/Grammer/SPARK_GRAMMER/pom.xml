@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -14,19 +13,26 @@
         <encoding>UTF-8</encoding>
         <scala.version>2.11.8</scala.version>
         <spark.version>2.2.0</spark.version>
-        <hadoop.version>2.6.4</hadoop.version>
+        <!--必须 2.7.3-->
+        <hadoop.version>2.7.3</hadoop.version>
         <kafka.version>0.11.0.0</kafka.version>
         <hbase.version>1.3.1</hbase.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
+
         <!-- 导入scala的依赖 -->
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
             <!--服务器上有-->
-
         </dependency>
         <!-- 导入spakr的依赖 -->
         <dependency>
@@ -114,10 +120,6 @@
 
     </dependencies>
 
-
-
-
-
     <build>
         <plugins>
             <!-- java编译插件 没有无法编译 -->
@@ -131,6 +133,7 @@
                 </configuration>
             </plugin>
             <!--scala编译插件 -->
+
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
