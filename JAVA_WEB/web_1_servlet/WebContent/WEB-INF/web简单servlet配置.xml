@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>web_1_servlet</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>encoding</param-name>
+		<param-value>GBK</param-value>
+	</context-param>
+
+	<!-- servlet配置 servlet名对应的class 还有参数 -->
+	<servlet>
+		<servlet-name>Demo4</servlet-name>
+		<servlet-class>czbk168.a_1_servlet.Demo_4_ServletConfig得到参数</servlet-class>
+		<init-param>
+			<param-name>username</param-name>
+			<param-value>root</param-value>
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>123</param-value>
+		</init-param>
+	</servlet>
+
+	<!-- 名称对应的url -->
+	<servlet-mapping>
+		<servlet-name>Demo4</servlet-name>
+		<url-pattern>/demo4</url-pattern>
+	</servlet-mapping>
+
+
+</web-app>

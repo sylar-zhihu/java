@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<!--配置bean 配置方式: 基于xml的方式 ,使用的全类名的方式. <bean>: 受Spring管理的一个javaBean对象.-->
+	<!--id:<bean>的唯一标识. 在整个IOC容器中唯一不重复. -->
+	<!--class: 指定javaBean的全类名. 目的是通过反射创建对象。 必须提供无参数构造器. -->
+	<!--<property>: 给对象的属性赋值  -->
+	<!--name: 指定属性名 , 不是java的成员变量 而是set后面的字符串  本质是操作的set方法来设置属性值-->
+	<!--value:指定属性值 -->
+
+	<bean id="person" class="com.atguigu.spring.helloWorld.Person">
+		<property name="name2" value="sylar"></property>
+	</bean>
+	<bean id="person1" class="com.atguigu.spring.helloWorld.Person">
+		<property name="name2" value="sylar1"></property>
+	</bean>
+
+</beans>
