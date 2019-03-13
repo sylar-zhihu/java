@@ -1,2 +1,0 @@
-name=aaaa
-age=55
