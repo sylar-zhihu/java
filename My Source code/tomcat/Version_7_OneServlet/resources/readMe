@@ -1,0 +1,15 @@
+启动服务器
+用浏览器访问 
+打印出消息的请求
+加入多线程,获取uri
+加入对html页面的响应
+加入servlet 去响应业务请求
+加入web.xml
+加入servlet 接口
+加入response 接口
+加入参数的封装,可以相应带参数的请求
+加入 request对象
+访问：
+http://localhost:8080/UserLogin.html
+填好参数，提交表单 后台打印
+加入servlet线程池,加快响应速度

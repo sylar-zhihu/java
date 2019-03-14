@@ -1,0 +1,11 @@
+启动服务器
+用浏览器访问 
+http://localhost:8080/index.html
+http://localhost:8080/index2.html
+打印出消息的请求
+加入多线程,获取uri
+加入对html页面的响应
+加入servlet 去响应业务请求
+加入web.xml
+加入servlet 接口
+加入response 接口
