@@ -1,0 +1,4 @@
+02_classMapping 在类上使用@RequestMapping 改变访问的路径
+03_get_post method = { RequestMethod.POST } 指定对哪种请求处理
+04_para 指定请求，和参数
+05_path_para 使用占位符号得到参数 @PathVariable

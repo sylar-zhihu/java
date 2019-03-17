@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- 带有切点的切面 -->
+	<!-- 生成目标对象bean -->
+	<bean id="orderDao" class="pointcutAdvisor.OrderDao"></bean>
+	
+	<!-- 生成实现接口的类的bean -->
+	<bean id="aroundAdvice" class="pointcutAdvisor.MyAroundAdvice"></bean>
+
+	
+
+	<!-- 通过工厂生成代理对象bean -->
+	<bean id="orderDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<!-- 配置目标 -->
+		<property name="target" ref="orderDao"></property>
+		<!-- 针对类的代理 -->
+		<property name="proxyTargetClass" value="true"></property>
+		<!-- 定义切点 -->
+		<property name="interceptorNames" value="myPointcutAdvisor"></property>
+	</bean>
+	
+	<!-- 定义切点bean: -->
+    <bean id="myPointcutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <!-- 定义表达式,规定哪些方法执行拦截 -->
+        <!-- . 任意字符  * 任意个 必须转移，不然会被理解为正则表达式-->
+        <!-- <property name="pattern" value=".*"/> -->
+        <!-- <property name="pattern" value="cn\.itcast\.spring3\.demo4\.OrderDao\.add.*"/> -->
+        <!-- <property name="pattern" value=".*add.*"></property> -->
+        <property name="patterns" value=".*add.*,.*find.*"></property>
+        <!-- 应用增强 把定义的bean插入 -->
+        <property name="advice" ref="aroundAdvice"/>
+    </bean>
+</beans>

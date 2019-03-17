@@ -1,0 +1,2 @@
+使用 @Configuration 注解 和@Bean(name="car")配置bean
+在这个类中配置bean

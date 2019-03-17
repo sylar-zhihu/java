@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body {
+	background-color: pink;
+}
+</style>
+
+</head>
+<!--<body bgcolor="pink"> -->
+<body bgcolor="pink">
+	<h1>欢迎登录</h1>
+
+	<!-- action: 请求的地址 -->
+	<!-- method: 请求的方式    -->
+	<!-- GET:将请求数据拼接到请求地址中， 直接暴露出来.  -->
+	<!-- http://localhost:8888/web01/login?username=Admin&password=123456 -->
+	<!-- POST:将请求数据存到请求体中提交，不会直接暴露出来。 -->
+
+	<form action="/login" method="post">
+		用户名称:
+		<input type="text" name="username" />
+		<br />
+		用户密码:
+		<input type="password" name="password" />
+		<br />
+		<input type="submit" value="Login" />
+
+	</form>
+</body>
+
+</html>

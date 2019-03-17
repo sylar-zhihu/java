@@ -1,0 +1,1 @@
+传输类对象 这样就不用总数传送String 可以传送List<String>

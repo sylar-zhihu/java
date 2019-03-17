@@ -1,0 +1,5 @@
+运行SpringDemo1 
+里面有传统方式调用和Spring方式调用的对比
+如果需要把实现类修改为UserDAOHibernateImpl
+原始方式需要修改代码
+而spring只需要修改配置文件

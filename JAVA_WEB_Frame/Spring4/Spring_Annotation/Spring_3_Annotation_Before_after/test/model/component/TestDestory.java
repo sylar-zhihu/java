@@ -1,0 +1,31 @@
+package model.component;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+/*
+ * 作者:
+ * 日期:2018年3月27日:下午4:25:47
+ * 程序作用:spring 测试初始化和注销方法
+**/
+@RunWith(SpringJUnit4ClassRunner.class) // 固定写法
+@ContextConfiguration(locations = "classpath:ComponentBean.xml") // 指定spring的配置文件
+public class TestDestory {
+
+    @Autowired
+    Student student;
+
+
+    @Test
+    // 测试初始化和注销方法
+    public void testPre() {
+        System.out.println(student.getName());
+        
+    }
+
+}
